@@ -11,6 +11,17 @@ import kotlinx.coroutines.flow.flowOf
 class OllamaCompletionProvider: InlineCompletionProvider {
     override val id = InlineCompletionProviderID("OllamaCompletionProvider")
 
+    /**
+     * Returns a code completion suggestion based on the current editor context.
+     *
+     * The method retrieves the entire prefix of the current file up to the caret position, and then delegates the
+     * work to the Ollama completion client, which generates a code completion based on the provided prefix.
+     *
+     * The completion is returned as an inline completion suggestion, which is, after a few (long) seconds, displayed in the editor.
+     *
+     * @param request The inline completion request that contains information about the editor and caret position.
+     * @return An inline completion suggestion, which is then inserted into the editor.
+     */
     override suspend fun getSuggestion(request: InlineCompletionRequest): InlineCompletionSuggestion {
         val prefix = getPrefix(request.editor, request.endOffset)
         val completion = OllamaCompletionClient.requestCompletion(prefix)
