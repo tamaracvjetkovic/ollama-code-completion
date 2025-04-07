@@ -12,10 +12,10 @@ public class OllamaCompletionClient {
     private static String ollamaCompletionUrl = "http://localhost:11434/api/generate";
 
     public static String requestCompletion(String prefix) {
-        /*String cached = com.github.tamaracvjetkovic.inlinecompletion.OllamaCompletionCache.get(prefix);
+        String cached = OllamaCompletionCache.get(prefix);
         if (cached != null) {
             return cached;
-        }*/
+        }
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -38,7 +38,7 @@ public class OllamaCompletionClient {
                 JSONObject jsonResponse = new JSONObject(response.body());
                 String completion = jsonResponse.getString("response");
 
-                //OllamaCompletionCache.put(prefix, completion);
+                OllamaCompletionCache.put(prefix, completion);
 
                 return completion;
 

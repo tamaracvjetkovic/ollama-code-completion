@@ -2,23 +2,18 @@ package com.github.tamaracvjetkovic.inlinecompletion
 
 import com.github.tamaracvjetkovic.client.OllamaCompletionClient
 import com.intellij.codeInsight.inline.completion.*
-
-import com.intellij.codeInsight.inline.completion.InlineCompletionEvent
-import com.intellij.codeInsight.inline.completion.InlineCompletionProvider
-import com.intellij.codeInsight.inline.completion.InlineCompletionRequest
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionElement
-
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionGrayTextElement
-import kotlinx.coroutines.flow.flowOf
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.util.TextRange
+import kotlinx.coroutines.flow.flowOf
 
 class OllamaCompletionProvider: InlineCompletionProvider {
     override val id = InlineCompletionProviderID("OllamaCompletionProvider")
 
     override suspend fun getSuggestion(request: InlineCompletionRequest): InlineCompletionSuggestion {
         val prefix = getPrefix(request.editor, request.endOffset)
-        val completion = OllamaCompletionClient.requestCompletion(prefix);
+        val completion = OllamaCompletionClient.requestCompletion(prefix)
 
         return InlineCompletionSuggestion.Default(
             flowOf(InlineCompletionGrayTextElement(completion))
