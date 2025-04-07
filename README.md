@@ -33,7 +33,7 @@ Here are a few examples where the completion worked well:
 > The model will generate a suggestion based only on the prefix (the whole file before the caret), so thats why there may be multiple brackets at the end of the suggestion.
 # 
 
-1) most basic example:
+# 1) most basic example:
    
 Input:
 ```
@@ -62,7 +62,7 @@ public class Main {
 
 -----
 
-2) very complex sum method:
+# 2) very complex sum method:
    
 Input:
 ```
@@ -90,7 +90,7 @@ public class Main {
 
 ---
 
-3. class context
+# 3. understanding the class context!
 
 Input:
 ```
