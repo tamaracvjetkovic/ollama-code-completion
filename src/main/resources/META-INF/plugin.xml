@@ -11,5 +11,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.tamaracvjetkovic.ollamacodecompletion.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
         <postStartupActivity implementation="com.github.tamaracvjetkovic.ollamacodecompletion.startup.MyProjectActivity" />
+        <inline.completion.provider implementation="com.github.tamaracvjetkovic.inlinecompletion.OllamaCompletionProvider"/>
     </extensions>
 </idea-plugin>
