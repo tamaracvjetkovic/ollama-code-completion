@@ -18,10 +18,17 @@ To use this plugin, follow the next steps:
 2) to run Ollama locally:
 - install Ollama (download from `https://ollama.com`)
 - run the following command in the terminal: `ollama run granite-code:3b` (this installs the `granite-code` model and starts it locally)
-3) open the repo project in IntelliJ and run the plugin
+- you can check in the browser if the ollama is running: `http://localhost:11434/`
+3) open the repo project in IntelliJ and run the plugin (it may take some time!)
 4) a demo editor will be opened after you run it
 - create a new project
-- start typing and wait a few seconds for the gray inline suggestion!
+- start typing and wait a few seconds for the gray inline suggestion! (sometimes it takes even 20 seconds to show the first suggestion)
+
+# How to stop Ollama? ♾️
+
+On Windows, open Task Manager, find `ollama`, and right-click `End Task`. 
+
+You can also click the upward-pointing arrow on the Taskbar, right-click on the ollama icon, and `Quit Ollama`.
 
 ----
 
