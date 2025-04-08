@@ -60,7 +60,7 @@ public class Main {
 }
 ```
 
------
+---
 
 # 2) very complex sum method:
    
@@ -121,3 +121,22 @@ public class Event {
 }
 ```
 > We can see that the model here even understood the context of the class, and added a list of attendees, which I honestly did not expect! Well done model! :)
+
+---
+
+# Plugin 🛠️
+
+<!-- Plugin description -->
+This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+
+This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+
+To keep everything working, do not remove `<!-- ... -->` sections.
+<!-- Plugin description end -->
+
+---
+
+Plugin based on the [IntelliJ Platform Plugin Template][template].
+
+[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
