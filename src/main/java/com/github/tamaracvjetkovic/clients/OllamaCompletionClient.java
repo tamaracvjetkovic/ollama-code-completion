@@ -3,12 +3,11 @@ package com.github.tamaracvjetkovic.clients;
 import com.github.tamaracvjetkovic.cache.OllamaCompletionCache;
 
 import java.io.IOException;
-import java.net.http.HttpClient;
 
 public class OllamaCompletionClient {
-    private HttpClient client;
+    private final OllamaHttpClient client;
 
-    public OllamaCompletionClient(HttpClient client) {
+    public OllamaCompletionClient(OllamaHttpClient client) {
         this.client = client;
     }
     /**
@@ -24,13 +23,17 @@ public class OllamaCompletionClient {
      * @throws RuntimeException If an error occurs during the completion request or while processing the response.
      */
     public String getCompletion(String prefix) {
+        if (prefix == null) {
+            throw new IllegalArgumentException("Prefix cannot be null");
+        }
+
         String cached = OllamaCompletionCache.get(prefix);
         if (cached != null) {
             return cached;
         }
 
         try {
-            String completion = new OllamaHttpClient(client).requestCompletion(prefix);
+            String completion = client.requestCompletion(prefix);
             OllamaCompletionCache.put(prefix, completion);
             return completion;
 

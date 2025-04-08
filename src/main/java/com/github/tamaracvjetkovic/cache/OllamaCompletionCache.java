@@ -18,9 +18,9 @@ import java.util.Map;
  * @code ACCESS_ORDER: Determines whether the elements will be ordered by access order (true) or insertion order (false).
  */
 public class OllamaCompletionCache {
-    private static final int CACHE_SIZE = 80;
-    private static final float LOAD_FACTOR = 0.8f;
-    private static final boolean ACCESS_ORDER = true;
+    public static final int CACHE_SIZE = 80;
+    public static final float LOAD_FACTOR = 0.8f;
+    public static final boolean ACCESS_ORDER = true;
 
     private static final LinkedHashMap<String, String> cache = new LinkedHashMap<>(CACHE_SIZE, LOAD_FACTOR, ACCESS_ORDER) {
         protected boolean removeEldestEntry(Map.Entry eldest) {
@@ -34,5 +34,9 @@ public class OllamaCompletionCache {
 
     public static void put(String prefix, String completion) {
         cache.put(prefix, completion);
+    }
+
+    public static void clear() {
+        cache.clear();
     }
 }

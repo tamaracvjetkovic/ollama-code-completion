@@ -31,10 +31,8 @@ repositories {
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
-    testImplementation(libs.junit)
-    testImplementation(libs.opentest4j)
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     testImplementation("org.mockito:mockito-core:5.17.0")
 
     implementation("org.json:json:20210307")
@@ -158,4 +156,8 @@ intellijPlatformTesting {
             }
         }
     }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

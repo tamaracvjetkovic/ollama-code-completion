@@ -1,6 +1,7 @@
 package com.github.tamaracvjetkovic.inlinecompletion
 
 import com.github.tamaracvjetkovic.clients.OllamaCompletionClient
+import com.github.tamaracvjetkovic.clients.OllamaHttpClient
 import com.intellij.codeInsight.inline.completion.*
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionElement
 import com.intellij.codeInsight.inline.completion.elements.InlineCompletionGrayTextElement
@@ -25,7 +26,7 @@ class OllamaCompletionProvider: InlineCompletionProvider {
      */
     override suspend fun getSuggestion(request: InlineCompletionRequest): InlineCompletionSuggestion {
         val prefix = getPrefix(request.editor, request.endOffset)
-        val completion = OllamaCompletionClient(HttpClient.newHttpClient()).getCompletion(prefix)
+        val completion = OllamaCompletionClient(OllamaHttpClient(HttpClient.newHttpClient())).getCompletion(prefix)
 
         return InlineCompletionSuggestion.Default(
             flowOf(InlineCompletionGrayTextElement(completion))
