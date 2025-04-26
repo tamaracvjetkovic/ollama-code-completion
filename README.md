@@ -1,6 +1,6 @@
 # ollama-code-completion 🎯
 
-An IntelliJ plugin that autocompletes your code.
+An IntelliJ IDEA plugin that autocompletes your code.
 
 Ollama model used: `granite-code:3b` (and a little bit of prompt magic to finish the code without unnecessary chit-chat 🧙‍♂️)
 
