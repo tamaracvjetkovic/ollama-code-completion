@@ -1,10 +1,27 @@
-# ollama-code-completion
+# ollama-code-completion 🎯
 
-A plugin that autocompletes your code.
+An IntelliJ plugin that autocompletes your code.
 
 Ollama model used: `granite-code:3b` (and a little bit of prompt magic to finish the code without unnecessary chit-chat 🧙‍♂️)
 
-# How does this work? ❓
+---
+
+The ``goal`` of the project was to:
+- implement inline code completion using a locally running AI model (Ollama),
+- research and select the best model based on available RAM,
+- learn how IntelliJ IDEA plugin development works,
+- focus on writing clean and well-structured code,
+- implement a custom caching policy to optimize performance
+#
+Technologies used: 
+- ``Java``
+- ``Ollama (local LLM platform, model: granite-code:3b)``
+#
+Date: April, 2025.
+
+---
+
+# How does it work? ❓
 - as you type, the plugin sends the prefix code to a local LLM (Large Language Model),
 - the model returns a code suggestion, which appears inline in gray (you need to wait a few seconds...),
 - the plugin uses cache to store the recently used prefixes, which can be reused quiclky when you type the same prefix code again.
